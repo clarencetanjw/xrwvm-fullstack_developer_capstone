@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <!-- Link the style sheets here -->
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <style>
+    .navbar {
+      background-color: darkturquoise;
+      height: 1in;
+    }
+    .navbar .brand {
+      padding-right: 5%;
+      color: white;
+      font-size: 1.5em;
+    }
+    .nav-link {
+      font-size: larger;
+      color: white !important;
+    }
+    .container {
+      margin-top: 5%;
+    }
+    .contact-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .contact-header h1 {
+      font-size: 2.5em;
+      color: darkturquoise;
+    }
+    .contact-image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .contact-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact-info div {
+      margin: 10px 0;
+    }
+    .contact-info p {
+      font-size: 1.2em;
+    }
+    .contact-info span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <span class="brand">Dealerships</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container">
+      <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Reach out to us through any of the following ways.</p>
+      </div>
+      
+      <div class="contact-image">
+        <img src="https://media.bizj.us/view/img/10812030/lamborghini-0855.jpg" alt="Best Car Dealership">
+      </div>
+      
+      <div class="contact-info">
+        <div>
+          <p><span>Address:</span> 123 Car Lane, Auto City, NA 12345</p>
+        </div>
+        <div>
+          <p><span>Phone:</span> (123) 456-7890</p>
+        </div>
+        <div>
+          <p><span>Email:</span> contact@bestcarsdealership.com</p>
+        </div>
+        <div>
+          <p><span>Business Hours:</span> Monday - Friday, 9 AM - 6 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
