@@ -8,8 +8,10 @@ from .populate import initiate
 from .models import CarMake, CarModel
 from .restapis import get_request, analyze_review_sentiments
 
+
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
+
 
 # Create a `login_user` view to handle sign in request
 @csrf_exempt
@@ -23,6 +25,7 @@ def login_user(request):
         login(request, user)
         response_data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(response_data)
+
 
 # Create a `registration` view to handle sign up request
 @csrf_exempt
@@ -43,8 +46,11 @@ def registration(request):
 
     if not username_exist:
         user = User.objects.create_user(
-            username=username, first_name=first_name, last_name=last_name,
-            password=password, email=email
+            username=username,
+            first_name=first_name,
+            last_name=last_name,
+            password=password,
+            email=email
         )
         login(request, user)
         response_data = {"userName": username, "status": "Authenticated"}
@@ -53,16 +59,20 @@ def registration(request):
         response_data = {"userName": username, "error": "Already Registered"}
         return JsonResponse(response_data)
 
+
 # Create a `get_cars` method
 def get_cars(request):
     count = CarMake.objects.filter().count()
     if count == 0:
         initiate()
     car_models = CarModel.objects.select_related('car_make')
-    cars = [{"CarModel": car_model.name, "CarMake": car_model.car_make.name} for car_model in car_models]
+    cars = [{"CarModel": car_model.name, "CarMake": car_model.car_make.name}
+            for car_model in car_models]
     return JsonResponse({"CarModels": cars})
 
-# Update the `get_dealerships` to render list of dealerships all by default, particular state if state is passed
+
+# Update the `get_dealerships` to render list of dealerships all by default, 
+# particular state if state is passed
 def get_dealerships(request, state="All"):
     if state == "All":
         endpoint = "/fetchDealers"
@@ -70,6 +80,7 @@ def get_dealerships(request, state="All"):
         endpoint = f"/fetchDealers/{state}"
     dealerships = get_request(endpoint)
     return JsonResponse({"status": 200, "dealers": dealerships})
+
 
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
 def get_dealer_reviews(request, dealer_id):
